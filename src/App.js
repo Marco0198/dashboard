@@ -5,16 +5,17 @@ import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { Navbar ,Footer,Sidebar,ThemeSettings} from "./components";
 import { Ecommerce,Orders,Kanban,Employee,Editor,ColorPicker,Calendar,Customer,Line,Area,Bar,pie,Pyramid,Pie,ColorMapping,Stacked} from "./pages";
 import "./App.css";
-
+import {useStateContext} from './context/ContextProvider'
 const App = () => {
-  const activeMenu = true;
+  //const activeMenu = true;
+  const{activeMenu} = useStateContext();
   return (
     <BrowserRouter>
       <div className="flex relative dark:bg-main-dark-bg">
         <div className="fixed right-4 bottom-4 " style={{ zIndex: "1000" }}>
           <TooltipComponent content="settings" position="Top">
             <button
-              className="text-5xl hover:bg-light-gray text-white "
+              className="text-3xl hover:bg-light-gray text-white "
               style={{ background: "#42f5ec", borderRadius:"50%" }}
             >
               <FiSettings />
@@ -26,7 +27,7 @@ const App = () => {
             <Sidebar/>
           </div>
         ) : (
-          <div className="w-0 dark:bg-secondary-dark-bg">Sidebar 2</div>
+          <div className="w-0 dark:bg-secondary-dark-bg"><Sidebar/></div>
         )}
         <div
           className={`dark:bg-main-bg bg-main-bg min-h-screen w-full ${
